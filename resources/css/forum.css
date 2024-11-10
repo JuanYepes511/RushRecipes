@@ -1,0 +1,50 @@
+/* Forum Styles */
+#forum {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+#post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#post-form input, #post-form textarea {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #4ECDC4;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#post-form button {
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#post-form button:hover {
+    background-color: #ff5252;
+}
+
+#login-message {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

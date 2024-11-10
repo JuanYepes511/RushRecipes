@@ -1,0 +1,74 @@
+/* Register Form Styles */
+#register-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+#register-form h2 {
+    color: #4ECDC4;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #4ECDC4;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#register-form button {
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+#register-form button:hover {
+    background-color: #ff5252;
+}
+
+#register-form p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#register-form a {
+    color: #4ECDC4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#register-form a:hover {
+    text-decoration: underline;
+}

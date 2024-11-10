@@ -1,0 +1,74 @@
+/* Navbar Styles */
+header {
+    background-color: #FF6B6B;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo img {
+    height: 60px;
+    margin-top: 0;
+}
+
+.nav-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #4ECDC4;
+}
+
+.user-auth {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.user-auth button {
+    background-color: #4ECDC4;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.user-auth button:hover {
+    background-color: #45b7ae;
+}
+
+#userWelcome {
+    color: white;
+    font-weight: 600;
+}
