@@ -76,6 +76,61 @@ app.post('/api/register', (req, res) => {
     });
 });
 
+// Ruta para validar ingredientes
+app.get('/api/validate-ingredient', (req, res) => {
+    const { name } = req.query;
+
+    db.get('SELECT * FROM ingredients WHERE name = ?', [name], (err, ingredient) => {
+        if (err) {
+            return res.status(500).json({ message: 'Error del servidor' });
+        }
+
+        res.json({ exists: ingredient !== undefined });
+    });
+});
+
+// Ruta para buscar recetas
+app.get('/api/search-recipes', (req, res) => {
+    const { ingredients } = req.query; // Se espera que los ingredientes se pasen como una cadena separada por comas
+    const ingredientList = ingredients.split(',').map(ingredient => ingredient.trim());
+
+    const placeholders = ingredientList.map(() => '?').join(',');
+    const sql = `SELECT * FROM recipes WHERE ingredients LIKE '%' || ? || '%'`;
+
+    const promises = ingredientList.map(ingredient => {
+        return new Promise((resolve, reject) => {
+            db.all(sql, [ingredient], (err, rows) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(rows);
+            });
+        });
+    });
+
+    Promise.all(promises)
+        .then(results => {
+            const uniqueRecipes = [...new Set(results.flat().map(recipe => recipe.id))];
+            res.json(uniqueRecipes);
+        })
+        .catch(err => {
+            res.status(500).json({ message: 'Error del servidor' });
+        });
+});
+
+// Ruta para obtener detalles de una receta
+app.get('/api/recipe/:id', (req, res) => {
+    const { id } = req.params;
+
+    db.get('SELECT * FROM recipes WHERE id = ?', [id], (err, recipe) => {
+        if (err) {
+            return res.status(500).json({ message: 'Error del servidor' });
+        }
+
+        res.json(recipe);
+    });
+});
+
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });

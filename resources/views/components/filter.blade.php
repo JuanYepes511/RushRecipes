@@ -8,4 +8,4 @@
                 <div id="ingredient-tags"></div>
                 <button id="search-recipes">Buscar Recetas</button>
 </section>
-<script src="js/recipe-search.js"></script>
+<script src="{{ asset('js/recipe-search.js') }}"></script>

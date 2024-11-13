@@ -21,3 +21,9 @@ Route::get('/register', function () {
 Route::get('/common-recipes', function () {
     return view('common-recipes');
 });
+Route::get('/search-results', function () {
+    return view('search-results');
+});
+Route::get('/recipe-detail', function () {
+    return view('recipe-detail');
+});
