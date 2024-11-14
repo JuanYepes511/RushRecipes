@@ -8,7 +8,7 @@
             <div class="nav-container">
                 <nav>
                     <ul>
-                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/home') }}">Home</a></li>
                         <li><a href="{{ url('/common-recipes') }}">Common Recipes</a></li>
                         <li><a href="{{ url('/forum') }}">Forum</a></li>
                     </ul>

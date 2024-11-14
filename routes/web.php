@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
 
-Route::get('/', 'App\Http\Controllers\RecipeController@index')->name('recipes');
+Route::get('/home', 'App\Http\Controllers\RecipeController@index')->name('recipes');
 
 Route::get('/forum', function () {
     return view('forum');
