@@ -14,9 +14,21 @@
         <main class="main-content">
             <section id="user-profile">
                 <h1>Tu Perfil</h1>
-                <p><strong>Nombre:</strong> </p>
-                <p><strong>Email:</strong> </p>
-                <p><strong>Plan Actual:</strong> </p>
+                
+                <!-- Mostrar los datos del usuario logueado -->
+                <p><strong>Nombre:</strong> {{ Auth::user()->name }}</p>
+                <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
+                
+                <!-- Mostrar el plan actual (suponiendo que tienes un campo 'plan' en el modelo User) -->
+                <p><strong>Plan Actual:</strong> 
+                    @if(Auth::user()->plan)
+                        {{ Auth::user()->plan }}
+                    @else
+                        No tienes un plan asignado.
+                    @endif
+                </p>
+
+                <!-- Botón para mejorar el plan -->
                 <button id="upgrade-plan-btn" onclick="window.location.href='{{ url('/payment') }}'">Mejorar Plan</button>
             </section>
         </main>

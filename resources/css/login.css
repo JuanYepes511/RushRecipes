@@ -39,6 +39,13 @@
     border-radius: 5px;
     font-family: 'Poppins', sans-serif;
 }
+.form-group textarea {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #4ECDC4;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
 
 #login-form button {
     background-color: #FF6B6B;
