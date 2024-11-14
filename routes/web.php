@@ -27,3 +27,10 @@ Route::get('/search-results', function () {
 Route::get('/recipe-detail', function () {
     return view('recipe-detail');
 });
+Route::get('/payment', function () {
+    return view('payment');
+});
+Route::get('/profile', function () {
+    return view('profile');
+});
+

@@ -30,36 +30,11 @@
             <section id="popular-recipes">
                 <h2>Recetas Populares</h2>
                 <div class="recipe-grid">
-                    <div class="recipe-card">
-                        <img src="../img/paella.jpg" alt="Paella Valenciana">
-                        <h3>Paella Valenciana</h3>
-                        <p>Delicioso plato de arroz con mariscos, pollo y verduras, típico de Valencia.</p>
-                    </div>
-                    <div class="recipe-card">
-                        <img src="../img/lasagna.jpg" alt="Lasaña">
-                        <h3>Lasaña Clásica</h3>
-                        <p>Capas de pasta, carne molida, queso y salsa de tomate, horneadas a la perfección.</p>
-                    </div>
-                    <div class="recipe-card">
-                        <img src="../img/sushi.jpg" alt="Sushi Variado">
-                        <h3>Sushi Variado</h3>
-                        <p>Una selección de rollos de sushi frescos con pescado, arroz y algas.</p>
-                    </div>
-                    <div class="recipe-card">
-                        <img src="../img/tacos.jpg" alt="Tacos al Pastor">
-                        <h3>Tacos al Pastor</h3>
-                        <p>Tortillas de maíz con carne de cerdo marinada, piña y cilantro.</p>
-                    </div>
-                    <div class="recipe-card">
-                        <img src="../img/pizza.jpg" alt="Pizza Margherita">
-                        <h3>Pizza Margherita</h3>
-                        <p>Pizza clásica italiana con tomate, mozzarella y albahaca fresca.</p>
-                    </div>
-                    <div class="recipe-card">
-                        <img src="../img/curry.jpg" alt="Curry de Pollo">
-                        <h3>Curry de Pollo</h3>
-                        <p>Suave curry de pollo con especias aromáticas y leche de coco.</p>
-                    </div>
+                    @include("components.recipecard")
+                    @include("components.recipecard")
+                    @include("components.recipecard")
+                    @include("components.recipecard")
+                    @include("components.recipecard")
                 </div>
             </section>
 

@@ -14,9 +14,9 @@
         <main class="main-content">
             <section id="user-profile">
                 <h1>Tu Perfil</h1>
-                <p><strong>Nombre:</strong> {{ $user->name }}</p>
-                <p><strong>Email:</strong> {{ $user->email }}</p>
-                <p><strong>Plan Actual:</strong> {{ $user->plan }}</p>
+                <p><strong>Nombre:</strong> </p>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Plan Actual:</strong> </p>
                 <button id="upgrade-plan-btn" onclick="window.location.href='{{ url('/payment') }}'">Mejorar Plan</button>
             </section>
         </main>
