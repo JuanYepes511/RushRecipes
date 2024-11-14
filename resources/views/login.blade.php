@@ -28,10 +28,11 @@
 
             <section id="login-form">
                 <h2>Iniciar Sesión</h2>
-                <form id="loginForm">
+                <form method="post" action="{{ route('login') }}" id="loginForm">
+                    @csrf
                     <div class="form-group">
                         <label for="email">Correo Electrónico:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="text" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña:</label>
@@ -39,7 +40,7 @@
                     </div>
                     <button type="submit">Iniciar Sesión</button>
                 </form>
-                <p>¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+                <p>¿No tienes una cuenta? <a href="{{ route('register') }}">Regístrate aquí</a></p>
             </section>
 
         </main>
@@ -48,11 +49,10 @@
             <p>Espacio para publicidad</p>
         </aside>
     </div>
-@include("components.footer")
-    <!-- Tus estructuras modales existentes -->
+
+    @include("components.footer")
 
     <script src="{{ asset('../resources/js/auth.js') }}"></script>
-
     <script src="{{ asset('../resources/js/login.js') }}"></script>
 </body>
 </html>

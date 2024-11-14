@@ -14,12 +14,27 @@
                     </ul>
                 </nav>
             </div>
+
             <div class="user-auth">
-                <button id="loginBtn"><a href="{{ url('/login') }}">Login</a></button>
-                <button id="registerBtn"><a href="{{ url('/register') }}">Register</a></button>
-                <span id="userWelcome" style="display: none;">Welcome, <span id="username"></span></span>
-                <button id="logoutBtn" style="display: none;">Logout</button>
+                @if(Auth::check()) <!-- Verificar si el usuario está logueado -->
+                    <span id="userWelcome">Welcome, <span id="username">{{ Auth::user()->name }}</span></span>
+                    
+                    <!-- Formulario para hacer logout -->
+                    <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                        @csrf <!-- CSRF token para seguridad -->
+                        <button type="submit" id="logoutBtn">Logout</button>
+                    </form>
+                @else
+                    <button id="loginBtn">
+                        <a href="{{ route('login') }}">Login</a>
+                    </button>
+                    <button id="registerBtn">
+                        <a href="{{ url('/register') }}">Register</a>
+                    </button>
+                @endif
             </div>
+
     </div>
 </header>
+
 <script src="{{ asset('../resources/js/recipe-search.js') }}"></script>

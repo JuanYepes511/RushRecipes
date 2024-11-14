@@ -81,7 +81,7 @@
 
 .recipe-image {
     width: 100%;
-    height: 200px;
+    height: auto;
     object-fit: cover; /* Asegura que la imagen ocupe todo el espacio sin distorsionar */
 }
 
@@ -98,4 +98,14 @@
 .recipe-description {
     font-size: 14px;
     color: #666;
+}
+/* Elimina el subrayado y el color azul de los enlaces dentro de las tarjetas */
+.recipe-card a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Mantiene el color del texto de la tarjeta */
+}
+
+/* Si deseas agregar un efecto de hover, por ejemplo, cambia el color al pasar el mouse */
+.recipe-card a:hover {
+    color: #007bff; /* Cambia el color al pasar el mouse */
 }
