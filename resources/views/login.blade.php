@@ -28,11 +28,22 @@
 
             <section id="login-form">
                 <h2>Iniciar Sesión</h2>
+                    <!-- Verifica si hay errores de validación -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form method="post" action="{{ route('login') }}" id="loginForm">
                     @csrf
                     <div class="form-group">
                         <label for="email">Correo Electrónico:</label>
-                        <input type="text" id="email" name="email" required>
+                        <input type="text" id="email" name="email" required value="{{ old('email') }}">
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña:</label>
@@ -51,8 +62,7 @@
     </div>
 
     @include("components.footer")
-
-    <script src="{{ asset('../resources/js/auth.js') }}"></script>
-    <script src="{{ asset('../resources/js/login.js') }}"></script>
+    <script src="{{ asset('js/auth.js') }}"></script>
+    <script src="{{ asset('js/login.js') }}"></script>
 </body>
 </html>

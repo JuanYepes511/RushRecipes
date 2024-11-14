@@ -49,10 +49,10 @@ class AuthController extends Controller
     }
     public function showLoginForm()
     {
-        return view('login'); // Asegúrate de tener una vista 'auth.login'
+        return view('login');  // Vista del formulario de login
     }
 
-    // Procesar el login
+    // Manejar el inicio de sesión
     public function login(Request $request)
     {
         // Validar las credenciales del usuario
@@ -66,21 +66,19 @@ class AuthController extends Controller
             // Si las credenciales son válidas, el usuario está autenticado
             $user = Auth::user();
             Auth::login($user);
-            return redirect('home');
+            return redirect()->route('home');
         }
+
         // Si no es posible autenticar, redirigir con un mensaje de error
         return back()->withErrors([
             'email' => 'Las credenciales proporcionadas no son correctas.',
         ]);
     }
-    
+
 
     public function logout()
     {
         Auth::logout();
-        $request->session()->invalidate(); // Invalida la sesión actual
-
-        $request->session()->regenerateToken();
         return redirect('home'); // O la ruta que desees redirigir al cerrar sesión
     }
 }

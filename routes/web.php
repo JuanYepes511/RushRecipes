@@ -10,10 +10,11 @@ Route::get('/forum', function () {
     return view('forum');
 });
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// Página de inicio de sesión (el formulario)
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
 
-// Ruta para procesar el login (cuando el formulario de login se envía)
-Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('login');
+// Procesar el inicio de sesión (validación y autenticación)
+Route::post('login', [AuthController::class, 'login']);
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.show');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
