@@ -15,9 +15,13 @@ header {
 }
 
 .logo img {
-    height: 60px;
-    margin-top: 0;
+    height: 60px;           /* Mantener la altura de la imagen */
+    width: 60px;            /* Asegurar que la imagen tenga el mismo ancho que su altura */
+    border-radius: 50%;     /* Esto hace que la imagen sea circular */
+    object-fit: cover;      /* Esto asegura que la imagen se ajuste bien al contorno circular, recortando el exceso si es necesario */
+    margin-top: 0;          /* Mantener el margen superior a 0, si ya es lo que necesitas */
 }
+
 
 .nav-container {
     flex-grow: 1;
@@ -62,10 +66,14 @@ nav ul li a:hover {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     transition: background-color 0.3s ease;
+    text-decoration: none;  /* Elimina el subrayado si el botón tiene algún enlace */
+    color: inherit; 
 }
 
 .user-auth button:hover {
     background-color: #45b7ae;
+    text-decoration: none;  /* Elimina el subrayado si el botón tiene algún enlace */
+    color: inherit; 
 }
 
 #userWelcome {

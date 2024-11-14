@@ -14,6 +14,8 @@
                     @if(Auth::check())
                         <li><a href="{{ url('/forum') }}">Suggestions</a></li>
                         <li><a href="{{ url('/payment') }}">Become Premium</a></li>
+                    @else
+                        <li><a href="{{ url('/login') }}">Become Premium</a></li>
                     @endif
                 </ul>
             </nav>
