@@ -34,4 +34,34 @@ class RecipeController extends Controller
         // Pasar las recetas a la vista
         return view('welcome', ['recipes' => $recipes]);
     }
+    public function show($title)
+    {
+        // Convertir el título de la URL a un slug
+        $slug = \Str::slug($title);
+
+        // Obtener la receta por su título
+        $recipe = Recipe::where('slug', $slug)->first();
+
+        // Verifica si la receta existe
+        if (!$recipe) {
+            abort(404, 'Receta no encontrada');
+        }
+
+        // Pasar los detalles de la receta a la vista
+        return view('recipe-detail', compact('recipe'));
+    }
+    public function store(Request $request)
+    {
+        $recipe = new Recipe();
+        $recipe->title = $request->title;
+        $recipe->slug = \Str::slug($request->title); // Generar el slug del título
+        $recipe->description = $request->description;
+        $recipe->ingredients = $request->ingredients;
+        $recipe->preparation = $request->preparation;
+        $recipe->save();
+
+        // Redirigir o retornar según corresponda
+    }
+
+
 }

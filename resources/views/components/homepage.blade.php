@@ -21,20 +21,23 @@
             <button id="search-recipes">Buscar Recetas</button>
         </section>
 
-        <div id="recipe-list">
-            <!-- Aquí se mostrarán las recetas -->
+        <div id="recipe-list" class="recipe-list">
+    <!-- Aquí se mostrarán las recetas -->
             @foreach($recipes as $recipe)
-                <div class="recipe-item">
-                    <h3>{{ $recipe->title }}</h3>
-                    <p>Ingredientes: {{ $recipe->ingredients }}</p>
-                    <p>Descripción: {{ $recipe->description }}</p>
-                    <p>Preparación: {{ $recipe->preparation }}</p>
-                    @if($recipe->image)
-                        <img src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->title }}" style="max-width: 200px;">
-                    @endif
+                <div class="recipe-card">
+                    <a href="{{ url('recipe/' . \Str::slug($recipe->title)) }}">
+                        @if($recipe->image)
+                            <img src="{{ $recipe->image }}" alt="{{ $recipe->title }}" class="recipe-image" style="max-width: 200px;">
+                        @endif
+                        <div class="recipe-content">
+                            <h3 class="recipe-title">{{ $recipe->title }}</h3>
+                            <p class="recipe-description">{{ Str::limit($recipe->description, 100) }}</p> <!-- Limita la descripción a 100 caracteres -->
+                        </div>
+                    </a>
                 </div>
             @endforeach
         </div>
+
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>

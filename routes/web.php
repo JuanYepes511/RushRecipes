@@ -35,3 +35,4 @@ Route::get('/profile', function () {
 
 
 Route::get('/recipes', 'App\Http\Controllers\RecipeController@index')->name('recipes');
+Route::get('/recipe/{title}', [RecipeController::class, 'show']);

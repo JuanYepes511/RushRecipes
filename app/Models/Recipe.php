@@ -16,5 +16,5 @@ class Recipe extends Model
     // public $timestamps = false;
 
     // Define los campos que se pueden llenar
-    protected $fillable = ['title', 'description', 'preparation','image','ingredients'];
+    protected $fillable = ['title', 'slug', 'description', 'preparation','image','ingredients'];
 }
