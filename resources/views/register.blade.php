@@ -62,7 +62,7 @@
     <!-- Tus estructuras modales existentes -->
 
     <script src="{{ asset('../resources/js/auth.js') }}"></script>
-
+    <script src="{{ asset('../resources/js/server.js') }}"></script>
     <script src="{{ asset('../resources/js/register.js') }}"></script>
 </body>
 </html>

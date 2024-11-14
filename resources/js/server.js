@@ -54,25 +54,24 @@ app.post('/api/login', (req, res) => {
     });
 });
 
-// Ruta para el registro
-app.post('/api/register', (req, res) => {
+// Ruta para registrar un nuevo usuario
+app.post('/api/register', async (req, res) => {
     const { name, email, password } = req.body;
 
-    bcrypt.hash(password, 10, (err, hash) => {
+    // Validar que todos los campos estén presentes
+    if (!name || !email || !password) {
+        return res.status(400).json({ message: 'Todos los campos son obligatorios' });
+    }
+
+    // Hashear la contraseña
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Insertar el nuevo usuario en la base de datos
+    db.run('INSERT INTO users (name, email, password) VALUES (?, ?, ?)', [name, email, hashedPassword], function(err) {
         if (err) {
-            return res.status(500).json({ message: 'Error al encriptar la contraseña' });
+            return res.status(500).json({ message: 'Error al registrar el usuario' });
         }
-
-        db.run('INSERT INTO users (name, email, password) VALUES (?, ?, ?)', [name, email, hash], (err) => {
-            if (err) {
-                if (err.message.includes('UNIQUE constraint failed')) {
-                    return res.status(400).json({ message: 'El correo electrónico ya está registrado' });
-                }
-                return res.status(500).json({ message: 'Error al registrar el usuario' });
-            }
-
-            res.json({ message: 'Usuario registrado exitosamente' });
-        });
+        res.status(201).json({ message: 'Usuario registrado exitosamente' });
     });
 });
 
