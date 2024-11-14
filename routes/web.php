@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RecipeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\RecipeController@index')->name('recipes');
 
 Route::get('/forum', function () {
     return view('forum');
@@ -34,3 +33,5 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
+
+Route::get('/recipes', 'App\Http\Controllers\RecipeController@index')->name('recipes');

@@ -13,7 +13,18 @@
 
             @include("components.filter")
 
-
+            <section id="recipes">
+                <h2>Recetas</h2>
+                <ul>
+                    @foreach($recipes as $recipe)
+                        <li>
+                            <h3>{{ $recipe->title }}</h3>
+                            <p>Ingredientes: {{ $recipe->ingredients }}</p>
+                            <p>Instrucciones: {{ $recipe->instructions }}</p>
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
             <section id="about-us">
                 <h2>Sobre Nosotros</h2>
                 <p>Nos apasiona ayudarte a crear deliciosas comidas con los ingredientes que ya tienes. Nuestro buscador inteligente de recetas elimina el estrés de la planificación de comidas y reduce el desperdicio de alimentos.</p>
